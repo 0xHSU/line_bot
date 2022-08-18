@@ -37,9 +37,19 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    msg = event.message.text
+    r= '許志安牛逼'
+
+    if msg in ['hi','Hi']:
+        r = '嗨'
+    elif msg == '區塊練牛逼':
+        r = '傳銷騙局'
+    elif msg == 'NFT牛逼':
+        r = '都是jpg'
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=r))
 
 
 if __name__ == "__main__":
